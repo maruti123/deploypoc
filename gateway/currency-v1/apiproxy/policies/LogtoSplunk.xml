@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageLogging async="false" continueOnError="false" enabled="true" name="LogtoSplunk">
+    <DisplayName>LogtoSplunk</DisplayName>
+    <Syslog>
+        <Message>This is a test message</Message>
+        <Host>35.224.84.100</Host>
+        <Port>19547</Port>
+        <Protocol>TCP</Protocol>
+    </Syslog>
+</MessageLogging>

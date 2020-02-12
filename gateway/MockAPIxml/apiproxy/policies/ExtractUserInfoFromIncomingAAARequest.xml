@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractUserInfoFromIncomingAAARequest">
+    <DisplayName>ExtractUserInfoFromIncomingAAARequest</DisplayName>
+    <Properties/>
+    <Source clearPayload="false">request</Source>
+    <XMLPayload>
+        <Variable name="username" type="string">
+            <XPath>/esb-aaa/username/text()</XPath>
+        </Variable>
+        <Variable name="pwd" type="string">
+            <XPath>/esb-aaa/password/text()</XPath>
+        </Variable>
+    </XMLPayload>
+</ExtractVariables>

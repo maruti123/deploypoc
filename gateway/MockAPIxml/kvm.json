@@ -1,0 +1,10 @@
+{
+  "name": "EncryptedAuthenticatedUserInfo",
+  "encrypted":true,
+  "entry": [
+    {
+      "name": "KS10349",
+      "value": ""
+    }
+  ]
+}

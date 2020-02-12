@@ -1,0 +1,25 @@
+<soapenv:Envelope xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn1="urn:Epic-com:Billing.2012.Services.Account" xmlns:urn="urn:Epic-com:Billing.2015.Services.Patient" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetCoverageBucketsMultiple>
+         <urn:GetCoverageBuckets>
+            <urn:Request>
+               <urn:CoverageID>
+                  <urn1:ID/>
+                  <urn1:Type/>
+               </urn:CoverageID>
+               <urn:EffectiveAfterDate>02/28/2016</urn:EffectiveAfterDate>
+               <urn:EffectiveBeforeDate>02/28/2016</urn:EffectiveBeforeDate>
+               <urn:FullData>1</urn:FullData>
+               <urn:MoopDedOnly>0</urn:MoopDedOnly>
+               <urn:PatientID>
+                  <urn1:ID>9809-51-62</urn1:ID>
+                  <urn1:Type>KPNW</urn1:Type>
+               </urn:PatientID>
+               <urn:RequestID>1</urn:RequestID>
+               <urn:RollPeriodDate>02/28/2016</urn:RollPeriodDate>
+            </urn:Request>
+         </urn:GetCoverageBuckets>
+      </urn:GetCoverageBucketsMultiple>
+   </soapenv:Body>
+</soapenv:Envelope>

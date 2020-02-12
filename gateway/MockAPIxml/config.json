@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "eis-dev",
+            "policies": [
+            ],
+            "proxies": [
+                {
+                    "name": "default.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/ProxyEndpoint/HTTPProxyConnection/BasePath",
+                            "value": "/v1/mock"
+                        }
+                    ]
+                }
+            ],
+            "targets": [
+
+            ]
+        }
+    ]
+}

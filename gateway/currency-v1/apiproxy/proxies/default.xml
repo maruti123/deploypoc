@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+
+	<DefaultFaultRule name="all">
+		<AlwaysEnforce>true</AlwaysEnforce>
+
+		<Step>
+			<Condition>flow.apigee.error.code = null</Condition>
+			<Name>AssignMessage.SetInternalServerErrorVariables</Name>
+		</Step>
+		<Step>
+			<Name>JavaScript.LogToLoggly</Name>
+		</Step>
+		<Step>
+			<Name>RaiseFault.Json</Name>
+		</Step>
+	</DefaultFaultRule>
+
+	<PreFlow>
+		<Request>
+		    <Step>
+                <Name>SurgeProtect</Name>
+            </Step>
+		    <Step>
+                <Name>VerifyAccesstoken</Name>
+            </Step>
+			<Step>
+				<Name>AssignMessage.CopyRequest</Name>
+			</Step>
+			<Step>
+                <Name>Quota</Name>
+            </Step>
+		</Request>
+		 <Response>
+            <Step>
+                <Name>LogCustomAnalytics</Name>
+            </Step>
+        </Response>
+	</PreFlow>
+
+	<Flows>
+		<Flow name="Get Exchange Rates">
+			<Condition>
+				(request.verb = "GET") and 
+				(proxy.pathsuffix MatchesPath "/rates")
+			</Condition>
+		</Flow>
+
+		<Flow name="404">
+			<Request>
+				<Step>
+					<Name>AssignMessage.SetApigee404ErrorVariables</Name>
+				</Step>
+				<Step>
+					<Name>RaiseFault.GoToFaultRules</Name>
+				</Step>
+			</Request>
+		</Flow>
+	</Flows>
+	<PostClientFlow>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>LogtoSplunk</Name>
+                </Step>
+            </Response>
+        </PostClientFlow>
+
+	<RouteRule name="default">
+		<TargetEndpoint>default</TargetEndpoint>
+	</RouteRule>
+
+	<HTTPProxyConnection>
+		<BasePath>/currency/v1</BasePath>
+		<VirtualHost>secure</VirtualHost>
+	</HTTPProxyConnection>
+</ProxyEndpoint>

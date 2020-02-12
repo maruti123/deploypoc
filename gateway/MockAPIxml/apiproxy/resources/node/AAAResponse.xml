@@ -1,0 +1,12 @@
+<url-open xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+   <responsecode>200</responsecode>
+   <content-type>text/xml</content-type>
+   <headers>
+      <header name="X-Backside-Transport">FAIL FAIL</header>
+      <header name="Content-Type">text/xml</header>
+      <header name="Date">Wed, 20 Dec 2017 06:23:05 GMT</header>
+   </headers>
+   <response>
+      <aaa>success</aaa>
+   </response>
+</url-open>

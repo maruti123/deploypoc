@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="Validate AAA">
+            <Description>Validate AAA</Description>
+            <Request>
+                <Step>
+                    <Name>ExtractUserInfoFromIncomingAAARequest</Name>
+                </Step>
+                <Step>
+                    <Name>GetUserInfoStoredInKVM</Name>
+                </Step>
+                <Step>
+                    <Name>ValidateUserInfo</Name>
+                </Step>
+                <Step>
+                    <Name>AuthenticationFailure</Name>
+                    <Condition>validUser = false</Condition>
+                </Step>
+            </Request>
+            <Condition>(proxy.pathsuffix MatchesPath "/aaa") and (request.verb = "POST")</Condition>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/v1/mock</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

@@ -1,0 +1,36 @@
+{
+    "version": "1.0",
+    "envConfig": {
+        "test": {
+            "kvms": [
+                {
+                    "name": "kp-url-map",
+                    "entry": [
+                        {
+                            "name": "urn:kp:witscc3",
+                            "value": "http://corelogic.dev.apigee.net/v1/mock/coverageBucketsMultiple"
+                        },
+                    ]
+                },
+                {
+                    "name": "masking",
+                    "entry": [
+                        {
+                            "name": "Type",
+                            "value": "**Masked this for security123**"
+                        },
+                        {
+                            "name": "ID",
+                            "value": "**Masked this second element for security**"
+                        },
+                    ],
+                },
+            ]
+        },
+        "dev": {
+            "caches": [],
+            "targetServers": []
+        }
+    },
+}
+

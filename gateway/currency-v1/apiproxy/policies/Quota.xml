@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Quota async="false" continueOnError="false" enabled="true" name="Quota" type="calendar">
+    <DisplayName>Quota</DisplayName>
+    <Properties/>
+    <Allow count="2000" countRef="apiproduct.developer.quota.limit"/>
+    <Interval ref="apiproduct.developer.quota.interval">1</Interval>
+    <Distributed>false</Distributed>
+    <Synchronous>false</Synchronous>
+    <TimeUnit ref="apiproduct.developer.quota.timeunit">month</TimeUnit>
+    <StartTime>2018-2-4 12:00:00</StartTime>
+
+    <!-- <AsynchronousConfiguration>
+   <SyncIntervalInSeconds>20</SyncIntervalInSeconds>
+</AsynchronousConfiguration> -->
+
+<!-- <AsynchronousConfiguration>
+   <SyncMessageCount>5</SyncMessageCount>
+</AsynchronousConfiguration> -->
+</Quota>
+
