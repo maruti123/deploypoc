@@ -8,7 +8,7 @@
                     "entry": [
                         {
                             "name": "urn:kp:witscc3",
-                            "value": "http://corelogic.dev.apigee.net/v1/mock/coverageBucketsMultiple"
+                            "value": "http://dev.apigee.net/v1/mock/coverageBucketsMultiple"
                         },
                     ]
                 },
